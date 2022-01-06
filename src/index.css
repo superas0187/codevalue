@@ -11,3 +11,120 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  background-color:cornflowerblue;
+  
+}
+
+.logo {
+  padding:20px;
+  
+}
+
+.header {
+  padding: 15px;
+  
+}
+
+
+
+.wrapper {
+  display: flex;
+  justify-content:space-around;
+  align-items: stretch;
+  flex-direction: row;
+}
+
+.list {
+  flex-direction: column;
+  width: 50%;
+}
+
+.card {
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  
+}
+
+.card1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+
+}
+
+.form {
+  padding: 15px;
+  width: 80%;
+  height: 350px;
+  border: 3px solid black;
+  flex-direction: column;
+  
+
+}
+
+.form-label {
+  margin-bottom: 15px;
+  
+}
+
+
+.form-control1 {
+  background-image: url('components/image/search24.png');
+  background-position: 150px 6px; 
+  background-repeat: no-repeat;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.form-control {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-control-search {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.form-control-price {
+  box-sizing: border-box;
+  max-width: 40%;
+}
+
+.search {
+  margin-left: 10px;
+  
+}
+
+.btn {
+  width: 80px;
+  height: 30px;
+  border: 3px solid black;
+  background-color: tomato;
+  float: right;
+}
+
+.btn1 {
+  width: 70px;
+  height: 30px;
+  border: 3px solid black;
+  background-color: rgb(51, 124, 48);
+  float: right;
+}
+
+.btn3 {
+  margin-left: 130px;
+  margin-top: 20px;
+  float: right;
+}
+
+
