@@ -3,34 +3,41 @@ import jsImg from './image/javascript_logo.png'
 
 
 
-const Cards = ({ term ,cardsList, setCardsList, setEditCard}) => {
+const Cards = ({term ,contacts, setContacts, setEditContact}) => {
+    
+    
+
     
 
     const handleEdit = ({id}) => {
-        const findCard = cardsList.find((card) => card.id === id)
-        setEditCard(findCard)
+        const findCard = contacts.find((contact) => contact.id === id)
+        setEditContact(findCard)
+        console.log(findCard)
     }
 
     const handleDelete = ({id}) => {
-        setCardsList(cardsList.filter((card) => card.id !== id))
+        setContacts(contacts.filter((contact) => contact.id !== id))
     }
+
+   
+   
 
     
     return (
         <div >
-            {term.map((card) => (
-                <div   item xs={12} sm={6}  className='card' key={card.id} >
-                    <a  style={{cursor: 'pointer'}} type="button" onClick = {() => handleEdit(card)}  >
+            { term?.map((contact) => (
+                <div      className='card' key={contact.id} >
+                    <i  style={{cursor: 'pointer'}} type="button" onClick = {() => handleEdit(contact)}   >
                         <div className="card1" >
                             <img src={jsImg} className="card-img" alt="..."/>
                             <div className="card-body" >
-                                <h5 className="card-title">{card.name}</h5>
-                                <p className="card-text">{card.description}</p>
+                                <h5 className="card-title">{contact.name}</h5>
+                                <p className="card-text">{contact.description}</p>
                             </div>
                         </div>
-                    </a>
+                    </i>
                     <div >
-                        <button type="button" aria-label="delete"  onClick = {() => handleDelete(card)} className="btn ">Delete</button>
+                        <button type="button" onClick={() => handleDelete(contact)}  aria-label="delete"   className="btn ">Delete</button>
                     </div>
                </div> 
             ))}
@@ -39,3 +46,7 @@ const Cards = ({ term ,cardsList, setCardsList, setEditCard}) => {
 }
 
 export default Cards
+
+
+
+

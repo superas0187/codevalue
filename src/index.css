@@ -1,56 +1,101 @@
-body {
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+body {
+  font-family: "Rubik", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;;
+  color: #111827;
+  /* padding: 9px; */
+ 
 }
+
+
+
 
 .navbar {
   background-color:cornflowerblue;
+  margin: 0;
+  
   
 }
 
 .logo {
-  padding:20px;
+  padding:15px;
+
   
 }
 
 .header {
-  padding: 15px;
-  
+  display: flex;
+  padding: 20px;
+  align-items:stretch;
+  justify-content:center;
+  max-width: 1000px;
+  box-sizing: border-box;
+  margin-left: 10px;
 }
 
 
 
 .wrapper {
-  display: flex;
-  justify-content:space-around;
+  display: grid;
+  justify-content: center;
   align-items: stretch;
-  flex-direction: row;
+  grid-template-columns: repeat(auto-fit, 600px);
 }
 
-.list {
-  flex-direction: column;
-  width: 50%;
+@media (max-width: 1198px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column-reverse; 
+  }
+
+  .form1 {
+    margin: 10px;
+  }
+
+  .header {
+    justify-content: center;
+    align-items:stretch;
+    
+  }
 }
+
+/* @media (min-width: 1215px) {
+  .header {
+    margin-left: 100px;
+
+  }
+} */
+
 
 .card {
   padding: 10px;
   margin: 10px;
-  width: 80%;
-  height: 130px;
+  height: 140px;
   justify-content: center;
   align-items: center;
   border: 3px solid black;
+  box-sizing: border-box;
   
   
+  
+}
+
+.card-title {
+  margin-top: 10px;
+}
+
+.card-text {
+  margin-top: 10px;
 }
 
 .card:hover {
@@ -67,16 +112,15 @@ code {
 
 .form {
   padding: 15px;
-  width: 95%;
-  height: 270px;
   
   
-  
-
 }
 
 .form-label {
   margin-bottom: 15px;
+  flex-direction:column;
+  display:flex;
+  
   
 }
 
@@ -89,13 +133,14 @@ code {
 }
 
 .form-control {
-  flex-direction:column;
+  width: 95%;
+  margin: 8px 0;
   box-sizing: border-box;
-  width: 100%;
+  padding: 7px 20px;
 }
 
 .form-control-search {
-  width: 100%;
+  width: 95%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -104,6 +149,14 @@ code {
 .form-control-price {
   box-sizing: border-box;
   max-width: 40%;
+  padding: 7px 10px;
+  
+  
+}
+
+.ttt {
+  display: flex;
+  flex-direction: row;
 }
 
 .search {
@@ -117,7 +170,10 @@ code {
   border: 3px solid black;
   background-color: tomato;
   float: right;
-  cursor: pointer
+  cursor: pointer;
+  margin: 25px;
+  
+  
 }
 
 .btn1 {

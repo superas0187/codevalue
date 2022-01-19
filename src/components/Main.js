@@ -6,70 +6,65 @@ import Cards from './Cards'
 
 
 const Main = () => {
-    const initialState = JSON.parse(localStorage.getItem('cardsList')) || [];
-    const [ cardsList, setCardsList ] = useState(initialState)
-    const [ name, setName ] = useState("")
-    const [ description, setDescription ] = useState("")
-    const [ price, setPrice ] = useState("")
+    const initialState = JSON.parse(localStorage.getItem('contacts')) || [];
+    const [ contacts, setContacts ] = useState(initialState)
+    const [ editContact, setEditContact ] = useState(null)
     const [ searchTerm, setSearchTerm ] = useState("")
     const [ term, setTerm ] = useState([])
-    const [ editCard, setEditCard ] = useState(null)
-    // const [ formData, setFormData ] = useState([{
-    //     name: "",
-    //     description: "",
-    //     price: ""
-    // }])
+    const [ contactInfo, setContactInfo ] = useState({
+        name: "", description: "", price: "",
+    })
+   
+ 
+  
+   
     
+    
+    
+
+    useEffect(() => {
+        localStorage.setItem("contacts", JSON.stringify(contacts));
+    }, [contacts])
+
+    useEffect(() => {
+          
+        if(term) {
+            const filterData = contacts.filter(contact => contact.name.toLowerCase().includes(searchTerm.toLowerCase()))
+            setTerm(filterData)
+            console.log(filterData)
+        }
+        
+    },[searchTerm, contacts])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(!editCard) {
-            setCardsList([ ...cardsList, {id: uuidv4(), name: name, description, price, completed: false }])
-            setName("")
-            setDescription("")
-            setPrice("")
+        if(!editContact) {
+            setContacts([...contacts, {id: uuidv4(), ...contactInfo, completed: false }])
+            setContactInfo({name: "", description: "", price: ""})
         }
     }  
-
-    useEffect(() => {
-        if(term) {
-            const filterData = cardsList.filter((card) =>card.name.toLowerCase().includes(searchTerm.toLowerCase()))
-            setTerm(filterData)
-        }
-        
-    },[searchTerm, cardsList])
-    
-    
-
-    
-    
-    
-    
-    useEffect(() => {
-        localStorage.setItem("cardsList", JSON.stringify(cardsList));
-      }, [cardsList])
 
     
 
     return (
-        <div>
-            <div  className='header' style={{display: 'flex'}}>
-                <form className="" onSubmit={handleSubmit}>
-                    <button  className='btn1' type="submit"     color='success' >+ Add</button>
+        <>
+            <div  className='header'>
+                <form className="" onSubmit={handleSubmit} >
+                    <button  className='btn1' type="submit"   color='success' >+ Add</button>
                 </form>
                 <div className='search'>
-                    <input className="form-control1 " type="search" onChange={(e) => {setSearchTerm(e.target.value)}} placeholder="Search.."  aria-label="Search"/>
+                    <input className="form-control1 "  type="search" onChange={(e) => {setSearchTerm(e.target.value)}} placeholder="Search.."  aria-label="Search"/>
                 </div>
             </div>
-            <div container spacing={3} className='wrapper'>
-                <div xs={12} sm={6} className="list">
-                    <Cards  term={term} editCard={editCard} setEditCard={setEditCard} cardsList={cardsList} setCardsList={setCardsList}  />
+            <div  className='wrapper'>
+                <div>
+                    <Cards  term={term} contacts={contacts} setContacts={setContacts} setEditContact={setEditContact}  />
                 </div>
-                <div xs={12} sm={6} className="list">
-                    <Form  cardsList={cardsList} setCardsList={setCardsList} name={name} setName={setName} description={description} setDescription={setDescription} price={price} setPrice={setPrice} editCard={editCard} setEditCard={setEditCard}/>
+                <div>
+                    <Form  contactInfo={contactInfo} setContactInfo={setContactInfo}  contacts={contacts} editContact={editContact} setEditContact={setEditContact}   setContacts={setContacts}  />
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
