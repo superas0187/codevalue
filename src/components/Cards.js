@@ -4,23 +4,15 @@ import jsImg from './image/javascript_logo.png'
 
 
 const Cards = ({term ,contacts, setContacts, setEditContact}) => {
-    
-    
-
-    
 
     const handleEdit = ({id}) => {
         const findCard = contacts.find((contact) => contact.id === id)
         setEditContact(findCard)
         console.log(findCard)
     }
-
     const handleDelete = ({id}) => {
         setContacts(contacts.filter((contact) => contact.id !== id))
     }
-
-   
-   
 
     
     return (

@@ -18,41 +18,26 @@ const Form = ({ contactInfo, setContactInfo ,setContacts,contacts, editContact, 
         
         if(editContact) {
             setContactInfo(editContact)
-            console.log(editContact)
-            console.log(contactInfo)
-        
         }else {
             setContactInfo({name: "", description: "", price: "", })
         }
     },[ editContact,  setContactInfo ])
 
-   
-
-    
-   
- 
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setContactInfo({ ...contactInfo, [name]: value})
     }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         const { name, description, price } = contactInfo
             if(!editContact) {
                 setContacts([...contacts, {id: uuidv4(), ...contactInfo, completed: false }])
                 setContactInfo({name: "", description: "", price: ""})
-                console.log(contacts)
-                console.log(contactInfo)
-                console.log(editContact)
-            
-            }else {
+            } else {
                 updateContact(name, description, price, editContact.id, editContact.completed)
             }  
     }
-
-   
 
     return (
         <fieldset className='form1' style={{  border: '3px solid black'}} >

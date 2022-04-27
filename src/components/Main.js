@@ -15,12 +15,6 @@ const Main = () => {
         name: "", description: "", price: "",
     })
    
- 
-  
-   
-    
-    
-    
 
     useEffect(() => {
         localStorage.setItem("contacts", JSON.stringify(contacts));
@@ -48,6 +42,7 @@ const Main = () => {
 
     return (
         <>
+        
             <div  className='header'>
                 <form className="" onSubmit={handleSubmit} >
                     <button  className='btn1' type="submit"   color='success' >+ Add</button>
@@ -56,6 +51,7 @@ const Main = () => {
                     <input className="form-control1 "  type="search" onChange={(e) => {setSearchTerm(e.target.value)}} placeholder="Search.."  aria-label="Search"/>
                 </div>
             </div>
+        
             <div  className='wrapper'>
                 <div>
                     <Cards  term={term} contacts={contacts} setContacts={setContacts} setEditContact={setEditContact}  />
